@@ -5,7 +5,7 @@ import { images } from '../../constants';
 import './About.scss'
 import { urlFor, client, builder } from '../../client';
 import imageUrlBuilder from '@sanity/image-url';
-import { AppWrap } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 
 const imgBuilder = imageUrlBuilder({
@@ -18,7 +18,7 @@ const imgBuilder = imageUrlBuilder({
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
-  console.log({abouts})
+  // console.log({abouts})
   
   // if (abouts.length !== 0) {
   //   // abouts.map(about => console.log(about.imgUrl.asset._ref))
@@ -69,4 +69,9 @@ const About = () => {
 }
 
 // export default About
-export default AppWrap(About, 'about')
+// export default AppWrap(About, 'about')
+export default AppWrap(
+  MotionWrap(About, 'app__about'),
+  'about',
+  'app__whitebg',
+);
